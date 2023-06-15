@@ -5,10 +5,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class StatusController {
-    String status = "Everything works as expected";
+     private String status = "Everything works as expected";
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     @RequestMapping("/status")
     public String showStatus(){
-        return status;
+        return getStatus();
     }
 }
