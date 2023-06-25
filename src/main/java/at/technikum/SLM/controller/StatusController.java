@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api")
 public class StatusController {
     private String status = "Everything works as expected";
 
@@ -17,12 +18,12 @@ public class StatusController {
         this.status = status;
     }
 
-    @RequestMapping("/status")
+    @RequestMapping("/message")
     public String showStatus() {
         return getStatus();
     }
 
-    @RequestMapping("/api/message/set")
+    @RequestMapping("/message/set")
     public String setMessage(@RequestParam(required = false, name = "m") String message) {
         if (message != null) {
             setStatus(message);
