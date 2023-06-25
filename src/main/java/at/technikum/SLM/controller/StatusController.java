@@ -22,7 +22,6 @@ public class StatusController {
     public String showStatus() {
         return getStatus();
     }
-
     @RequestMapping("/message/set")
     public String setMessage(@RequestParam(required = false, name = "m") String message) {
         if (message != null) {
