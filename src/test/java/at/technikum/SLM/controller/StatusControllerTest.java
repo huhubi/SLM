@@ -22,4 +22,25 @@ public class StatusControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string("Everything works as expected"));
     }
+
+    @Test
+    public void testSetMessage() throws Exception {
+        // Create an instance of the StatusController
+        StatusController statusController = new StatusController();
+
+        // Build the MockMvc for testing
+        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(statusController).build();
+
+        // Perform the GET request and validate the response
+        mockMvc.perform(get("/api/message/set?m=Test"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("ok"));
+
+
+        //Test nach dem "Test" als Nachricht gesetzt wurde
+        mockMvc.perform(get("/status"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("Test"));
+
+    }
 }
