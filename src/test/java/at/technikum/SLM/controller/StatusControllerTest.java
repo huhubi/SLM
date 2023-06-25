@@ -18,11 +18,10 @@ public class StatusControllerTest {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(statusController).build();
 
         // Perform the GET request and validate the response
-        mockMvc.perform(get("/status"))
+        mockMvc.perform(get("/api/message"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Everything works as expected"));
     }
-
     @Test
     public void testSetMessage() throws Exception {
         // Create an instance of the StatusController
@@ -38,7 +37,7 @@ public class StatusControllerTest {
 
 
         //Test nach dem "Test" als Nachricht gesetzt wurde
-        mockMvc.perform(get("/status"))
+        mockMvc.perform(get("/api/message"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Test"));
 
