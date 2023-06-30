@@ -1,6 +1,5 @@
 package at.technikum.SLM.controller;
 
-import at.technikum.SLM.controller.StatusController;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -9,6 +8,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 public class StatusControllerTest {
+
     @Test
     public void testShowStatus() throws Exception {
         // Create an instance of the StatusController

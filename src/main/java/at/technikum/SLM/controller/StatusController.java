@@ -1,9 +1,6 @@
 package at.technikum.SLM.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -18,16 +15,21 @@ public class StatusController {
         this.status = status;
     }
 
-    @RequestMapping("/message")
+    @GetMapping("/message")
     public String showStatus() {
         return getStatus();
     }
-    @RequestMapping("/message/set")
+    @GetMapping("/message/set")
     public String setMessage(@RequestParam(required = false, name = "m") String message) {
         if (message != null) {
             setStatus(message);
         }
         return "ok";
+    }
 
+    @GetMapping("/message/reset")
+    public String resetMessage() {
+        setStatus("Everything works as expected");
+        return "ok";
     }
 }
